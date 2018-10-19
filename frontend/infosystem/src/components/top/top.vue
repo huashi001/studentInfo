@@ -3,7 +3,7 @@
     <div class="header">
      <div class="title">学生信息管理系统</div>
      <div v-if="!isLoged" class="tip"><router-link tag="div" to="/log">登录</router-link></div>
-     <div v-if="isLoged" class="tip" @click='logout'>退出</div>
+     <div v-if="isLoged" class="tip" @click='logout'>{{isLoged?this.$store.getters.userName:123}},欢迎您!<br/>退出</div>
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
   .tip
     position absolute
     right 100px
-    top 30px
-    font-size 20px
+    top 25px
+    font-size 17px
     color blue
 </style>

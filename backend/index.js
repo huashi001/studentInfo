@@ -1,6 +1,7 @@
 const koa = require('koa');
 const Router = require('koa-router');
-const user = require('./routers/user.js');
+const user = require('./routers/stu.js');
+const teacher = require('./routers/teacher.js')
 const bodyParser = require('koa-bodyparser');
 //const koaBody = require('koa-body');
 
@@ -16,7 +17,7 @@ app.use(bodyParser());
 // 装载所有子路由
 let router = new Router()
 router.use('', user.routes(), user.allowedMethods())
-//router.use('/page', page.routes(), page.allowedMethods())
+router.use('/teacher', teacher.routes(), teacher.allowedMethods())
 
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods())

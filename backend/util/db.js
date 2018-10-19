@@ -5,13 +5,13 @@ const pool=mysql.createPool({
   password: 'huashi123',
   database: 'huashi'
 });
-const query=function(sql){
+const query=function(sql,data){
   return new Promise((resolve,reject)=>{
     pool.getConnection(function(err,connection){
       if(err){
         reject(err);
       }else{
-        connection.query(sql,function(err,data){
+        connection.query(sql,data,function(err,data){
           if(err){
             reject(err);
           }else{

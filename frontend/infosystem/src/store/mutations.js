@@ -1,7 +1,7 @@
 const mutations={
-  changeLog(state,userName,identity){
-    state.userName = userName;
-    state.identity = identity;
+  changeLog(state,obj){
+    state.userName = obj.userName;
+    state.identity = obj.identity;
   }
 }
 export default mutations;

@@ -8,18 +8,22 @@
           <td>{{info.name}}</td>
         </tr>
         <tr>
-          <td>学号</td>
+          <td>{{isStu? "学号":"工号"}}</td>
           <td>{{info.number}}</td>
         </tr>
-        <tr>
-          <td class="left">班级</td>
+        <tr v-if="isStu">
+          <td class="left" >班级</td>
           <td>{{info.class}}</td>
+        </tr>
+        <tr>
+          <td>年龄</td>
+          <td>{{info.age}}</td>
         </tr>
         <tr>
           <td>手机号</td>
           <td>{{info.phonenum}}</td>
         </tr>
-        <tr>
+        <tr v-if="isStu">
           <td class="left">兴趣爱好</td>
           <td>{{info.hobby}}</td>
         </tr>
@@ -38,6 +42,7 @@ export default {
     };
   },
   created() {
+    console.log(this.$store.getters.identity)
     this._getUserInfo();
   },
   methods: {
@@ -52,8 +57,15 @@ export default {
         .then(res => {
           if (res.data.ERR_OK == 0) {
             this.info = res.data.info[0];
+          }else{
+           // this.$router.push('/');
           }
         });
+    }
+  },
+  computed:{
+    isStu(){
+      return this.$store.getters.identity=="stu";
     }
   }
 };

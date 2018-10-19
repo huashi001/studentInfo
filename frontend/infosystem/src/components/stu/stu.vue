@@ -34,7 +34,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='stylus' rel='stylesheet/stylus'>
+<style lang='stylus' rel='stylesheet/stylus' scoped>
   .stu-wrap
     width 80%
     margin 160px 10% 0 10%

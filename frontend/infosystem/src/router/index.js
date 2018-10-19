@@ -12,6 +12,9 @@ import Course from 'components/course/course'
 import Score from 'components/score/score'
 import Info from 'components/info/info'
 import Homework from 'components/homework/homework'
+import Send from 'components/send/send'
+import Teach from 'components/teach/teach'
+import Mark from 'components/mark/mark'
 
 export default new Router({
   routes: [
@@ -54,6 +57,21 @@ export default new Router({
       path: '/user/teacher',
       name: 'teacher',
       component: Teacher
+    },
+    {
+      path: '/user/teach',
+      name: 'teach',
+      component: Teach
+    },
+    {
+      path: '/user/mark',
+      name: 'mark',
+      component: Mark
+    },
+    {
+      path: '/user/send',
+      name: 'send',
+      component: Send
     }
   ]
 })

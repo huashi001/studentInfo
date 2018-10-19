@@ -42,7 +42,10 @@ export default {
              this.flag=true;
            }else{
              let {userName,identity}=res.data;
-             this.$store.commit("changeLog",userName,identity);
+             this.$store.commit("changeLog",{
+               userName,
+               identity
+             });
              this.$router.push(`/user/${identity}`);
            }
          })

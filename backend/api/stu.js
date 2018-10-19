@@ -1,12 +1,15 @@
 const { query } = require('../util/db.js');
-//学生个人信息
+// 学生、教师个人信息
 exports.STU_INFO=async function(ctx){
   let {number,identity} = ctx.query;
   if(!number){
+    ctx.body={
+      ERR_OK:1
+    }
     return;
   }
   try{
-    let info = await query(`SELECT * FROM stu WHERE number=${number}`); 
+    let info = await query(`SELECT * FROM ${identity} WHERE number=${number}`); 
     ctx.body={
       ERR_OK:0,
       info
