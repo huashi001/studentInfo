@@ -57,7 +57,22 @@ exports.GET_MSG=async function(ctx){
 }
 //录入成绩
 exports.MARK=async function(ctx){
-  
+  let {teacherNum,stuNum,point,subId}=ctx.query;
+ try{
+  await query(`UPDATE selectedcourse SET score=${point} WHERE number=? AND courseNum=?`,[stuNum,subId])
+    .then(res=>{
+    ctx.body={
+      ERR_OK:0,
+      'msg':'输入成功'
+    }
+  })
+ }catch(e){
+  ctx.body={
+    ERR_OK:1,
+    'msg':"出错"
+  }
+  console.log(e);
+ }
 }
 //获取成绩
 exports.GET_SCORE=async function(ctx){

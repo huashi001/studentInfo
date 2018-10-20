@@ -12,8 +12,8 @@
         <div class="left" ref='huashi'>学号</div>
         <div class="right">成绩</div>
       </li>
-      <li v-for="(item,index) in scores">
-        <div class="left" ref="xuehao+index">{{item.number}}</div>
+      <li v-for="item in scores">
+        <div class="left">{{item.number}}</div>
         <div class="right" v-if="item.score">{{item.score}}</div>
         <div class="right" v-if="!item.score">
           <input type="text" placeholder="请输入成绩" @change="check" maxlength="3">
@@ -70,15 +70,21 @@ export default {
         this.point=e.target.value;
       }
     },
-    add(){
-      alert(this.$refs.xuehao)
-        // axios.get("/api/teacher/mark",{
-        //   params:{
-        //     teacherNum:this.$store.getters.userName,
-        //     point: this.point,
-        //     stuNum: this.$refs.xuehao.innerTEXT
-        //   }
-        // })
+    //向后台请求添加分数
+    add(e){
+      let stuNum=e.target.parentNode.parentNode.firstChild.innerText
+        axios.get("/api/teacher/mark",{
+          params:{
+            teacherNum:this.$store.getters.userName,
+            subId:this.subId,
+            point: this.point,
+            stuNum: stuNum
+          }
+        }).then(res=>{
+          if(res.data.ERR_OK==0){
+             this._getStudentScore();
+          }
+        })
     }
   }
 }
