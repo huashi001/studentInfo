@@ -59,3 +59,20 @@ exports.GET_MSG=async function(ctx){
 exports.MARK=async function(ctx){
   
 }
+//获取成绩
+exports.GET_SCORE=async function(ctx){
+  let {teacherNum,courseNum}=ctx.query;
+  try{
+    let data = await query("SELECT * FROM selectedcourse WHERE courseNum='"+courseNum+"' AND teacherNum='"+teacherNum+"'");
+    ctx.body={
+      ERR_OK:0,
+      data
+    }
+  }catch(e){
+    ctx.body={
+      ERR_OK:1,
+      e
+    }
+    console.log(e)
+  }
+}

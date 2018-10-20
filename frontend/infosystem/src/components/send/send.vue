@@ -3,7 +3,7 @@
     <div>
       <select name="" id="" v-model="subjectId">
         <option value="">----请选择学科----</option>
-        <option value="" v-for="item in subs" :value="item.courseNum">{{item.name}}</option>
+        <option v-for="item in subs" :value="item.courseNum">{{item.name}}</option>
       </select><br/><br/>
       <textarea name="" id="" cols="30" rows="10" placeholder="请输入通知内容(120字以内)" v-model="note"></textarea><br/>
       <input type="button" value="提交" class="submit" @click="send"> 
