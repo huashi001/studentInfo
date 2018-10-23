@@ -13,9 +13,17 @@
         <img src="./score.png" alt="成绩查询" title="成绩查询">
           <p>成绩查询</p>
       </router-link>
+      <router-link tag="div" class="item" to="/user/message">
+        <img src="./msg.png" alt="我的通知" title="我的通知">
+          <p>我的通知</p>
+      </router-link>
+      <router-link tag="div" class="item" to="/user/communication">
+        <img src="./communication.png" alt="在线交流" title="在线交流">
+          <p>在线交流</p>
+      </router-link>
       <router-link tag="div" class="item" to="/user/homework">
-        <img src="./homework.png" alt="作业提交" title="作业提交">
-          <p>作业提交</p>
+        <img src="./homework.png" alt="文件上传" title="文件上传">
+          <p>文件上传</p>
       </router-link>
     </div>
   </div>

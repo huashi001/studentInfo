@@ -17,6 +17,14 @@
         <img src="./mark.png" alt="成绩上传" title="成绩上传">
           <p>成绩上传</p>
       </router-link>
+      <router-link tag="div" class="item" to="/user/communication">
+        <img src="./communication.png" alt="在线交流" title="在线交流">
+          <p>在线交流</p>
+      </router-link>
+      <router-link tag="div" class="item" to="/user/mark">
+        <img src="./homework.png" alt="学生作业" title="学生作业">
+          <p>学生作业</p>
+      </router-link>
     </div>
   </div>
 </template>

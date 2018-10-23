@@ -56,4 +56,21 @@ exports.STU_GET_SCORE=async function(ctx){
 exports.STU_HOMEWORK=async function(ctx){
   console.log(ctx.request.body.name)
   console.log(ctx.request.body.data)
+  // to-do
+}
+exports.GET_MESSAGE=async function(ctx){
+  let number=ctx.query.number;
+  try{
+    let msgs = await query(`SELECT note,name,message.time FROM message,course WHERE message.courseNum IN 
+          (SELECT courseNum FROM selectedcourse WHERE number=${number}) AND message.courseNum=course.courseNum`);
+    ctx.body={
+      ERR_OK:0,
+      msgs
+    }
+  }catch(e){
+    ctx.body={
+      ERR_OK:1,
+      msg:e
+    }
+  }
 }

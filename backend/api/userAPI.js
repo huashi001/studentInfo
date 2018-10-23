@@ -44,5 +44,36 @@ exports.USER_LOGIN_API = async (ctx) => {
       msg: "未知错误!"
     }
   }
-
+}
+//获取留言
+exports.COMMU=async function(ctx){
+  try{
+    let communication=await query(`SELECT * FROM commu`);
+    ctx.body={
+      ERR_OK:0,
+      communication
+    }
+  }catch(e){
+    ctx.body={
+      ERR_OK:1,
+      e
+    }
+  }
+}
+//提交留言
+exports.SUBMIT_COMMU=async function(ctx){
+  let {num,note,time}=ctx.query;
+  try{
+    await query(`INSERT INTO commu (number,note,time) VALUES (?,?,?)`,[num,note,time]).then(res=>{
+      ctx.body={
+        ERR_OK:0,
+        'msg':"success"
+      }
+    })
+  }catch(e){
+    ctx.body={
+      ERR_OK:1,
+      "msg":'failed'
+    }
+  }
 }

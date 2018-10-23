@@ -15,6 +15,8 @@ import Homework from 'components/homework/homework'
 import Send from 'components/send/send'
 import Teach from 'components/teach/teach'
 import Mark from 'components/mark/mark'
+import Message from 'components/message/message'
+import Communication from 'components/communication/communication'
 
 export default new Router({
   routes: [
@@ -69,9 +71,19 @@ export default new Router({
       component: Mark
     },
     {
+      path: '/user/message',
+      name: 'message',
+      component: Message
+    },
+    {
       path: '/user/send',
       name: 'send',
       component: Send
+    },
+    {
+      path: '/user/communication',
+      name: 'communication',
+      component: Communication
     }
   ]
 })
